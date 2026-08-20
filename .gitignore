@@ -1,0 +1,8 @@
+# ビルド成果物（Cloudflare Pages が build.mjs を実行して生成する）
+dist/
+
+# フォントのサブセット元（巨大なので置かない。scripts で再取得する）
+fonts/.src/
+
+.DS_Store
+node_modules/
