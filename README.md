@@ -5,12 +5,14 @@
 ## 構成
 
 ```
-build.mjs        静的サイト生成（依存パッケージなし）
-src/games.js     遊びのデータ（ここを編集する）
-src/style.css    共通スタイル
-img/             図版 16枚（幅800px webp）
-fonts/           サブセット済みフォント + ライセンス
-dist/            ★ 出力。Cloudflare Pages にはここを置く
+build.mjs               静的サイト生成（依存パッケージなし）
+scripts/build-fonts.mjs フォントのサブセット生成
+src/games.js            遊びのデータ（ここを編集する）
+src/style.css           共通スタイル
+img/                    図版 16枚（幅800px webp）
+fonts/                  サブセット済みフォント + ライセンス
+wrangler.jsonc          Cloudflare の配信設定
+dist/                   ★ 出力（gitignore 済み）
 ```
 
 ## ビルド
@@ -23,16 +25,26 @@ node build.mjs
 
 ## デプロイ
 
-```bash
-npx wrangler pages deploy dist --project-name=asobizukan
+`main` に push すると Cloudflare が自動でビルド・デプロイします。
+Cloudflare 側の deploy command は次の設定です。
+
 ```
+node build.mjs && npx wrangler deploy
+```
+
+## 表記のルール
+
+- 本文に出る「あそび」は**ひらがな**で統一する（サイト名が あそびずかん のため）
+- `<title>` と `description` は「遊び」と**漢字**にする（検索語が漢字のため）
 
 ## 遊びを追加するとき
 
 1. `src/games.js` に追記（漢字は `{漢字|かんじ}` 記法でルビを付ける）
 2. `build.mjs` の `SLUGS` にURL用のスラッグを追加
 3. `img/` に同じ連番で図版を追加
-4. **フォントを再生成する**（新しい漢字はサブセットに入っていないため）
+4. **フォントを再生成する** — `npm run fonts`
+   新しい漢字はサブセットに入っていないため、これを忘れるとその字だけ
+   システムフォントで表示されて書体が変わります
 5. `node build.mjs`
 
 ## 方針メモ

@@ -1,0 +1,12 @@
+{
+  "name": "asobizukan",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "fonts": "node scripts/build-fonts.mjs"
+  },
+  "devDependencies": {
+    "subset-font": "^2.5.0"
+  }
+}

@@ -63,7 +63,7 @@ ${jsonld ? `<script type="application/ld+json">${JSON.stringify(jsonld)}</script
 </div></div>
 ${body}
 <footer><div class="wrap">
-  <p class="fnote">あそびずかん — ${ruby('{休|やす}み{時間|じかん}')}に できる ${ruby('{遊|あそ}び')}の ずかん</p>
+  <p class="fnote">あそびずかん — ${ruby('{休|やす}み{時間|じかん}')}に できる あそびの ずかん</p>
   <p class="fcopy">© 2026 <a href="https://stendear.com" target="_blank" rel="noopener noreferrer">Stendear</a></p>
 </div></footer>
 <script>
@@ -108,8 +108,8 @@ const chips=(k,vals)=>vals.map(v=>`<button class="chip" data-k="${k}" data-v="${
 const topBody = `
 <div class="wrap">
   <div class="hero">
-    <h1>きょうの${ruby('{休|やす}み{時間|じかん}')}、<br>なにして<span class="hl">${ruby('{遊|あそ}ぶ')}</span>？</h1>
-    <p>${ruby('{5分|ごふん}しかない{休|やす}み{時間|じかん}でも、{中|なか}{休|やす}みでも、{昼|ひる}{休|やす}みでも。ある{時間|じかん}と{人数|にんずう}をえらぶと、いますぐできる{遊|あそ}びが{見|み}つかります。')}</p>
+    <h1>きょうの${ruby('{休|やす}み{時間|じかん}')}、<br>なにして<span class="hl">あそぶ</span>？</h1>
+    <p>${ruby('{5分|ごふん}しかない{休|やす}み{時間|じかん}でも、{中|なか}{休|やす}みでも、{昼|ひる}{休|やす}みでも。ある{時間|じかん}と{人数|にんずう}をえらぶと、いますぐできる あそびが{見|み}つかります。')}</p>
   </div>
   <div class="roulette">
     <button class="roulette-btn" id="spin">きょう なにする？</button>
@@ -242,7 +242,7 @@ await writeFile(path.join(DIST,'404.html'), shell({
 <div class="wrap">
   <div class="hero">
     <h1>ページが ${ruby('{見|み}つかりません')}</h1>
-    <p>アドレスが ${ruby('{変|か}わった')}か、${ruby('{間違|まちが}っている')}かもしれません。</p>
+    <p>アドレスが ${ruby('{変|か}わった')}か、まちがって いるかもしれません。</p>
   </div>
   <div class="nav-actions">
     <a class="primary" href="/">ぜんぶの あそびを ${ruby('{見|み}る')}</a>
