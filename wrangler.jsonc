@@ -1,0 +1,12 @@
+{
+  // Cloudflare Workers（静的アセット配信）の設定。
+  // build.mjs が dist/ を生成し、その中身をそのまま配信する。
+  "name": "asobizukan",
+  "compatibility_date": "2026-08-20",
+  "assets": {
+    "directory": "./dist",
+    // /asobi/keidoro/ のようなディレクトリは index.html が返る。
+    // 該当なしのときは 404.html を返す。
+    "not_found_handling": "404-page"
+  }
+}

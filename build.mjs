@@ -233,6 +233,23 @@ for (let i=0;i<GAMES.length;i++){
   }));
 }
 
+// 404ページ
+await writeFile(path.join(DIST,'404.html'), shell({
+  title:'ページが見つかりません ｜ あそびずかん',
+  desc:'お探しのページは見つかりませんでした。',
+  canonical:ORIGIN+'/404.html', ogImage:ORIGIN+'/ogp.png', jsonld:null,
+  body:`
+<div class="wrap">
+  <div class="hero">
+    <h1>ページが ${ruby('{見|み}つかりません')}</h1>
+    <p>アドレスが ${ruby('{変|か}わった')}か、${ruby('{間違|まちが}っている')}かもしれません。</p>
+  </div>
+  <div class="nav-actions">
+    <a class="primary" href="/">ぜんぶの あそびを ${ruby('{見|み}る')}</a>
+  </div>
+</div>`,
+}));
+
 for (const d of ['img','fonts']) await cp(path.join(ROOT,d), path.join(DIST,d), {recursive:true});
 await rm(path.join(DIST,'fonts','.src'),{recursive:true,force:true});
 await rm(path.join(DIST,'fonts','fonts.css'),{force:true});
